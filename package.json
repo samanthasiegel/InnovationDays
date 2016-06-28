@@ -1,0 +1,20 @@
+{
+  "name": "innovation-days",
+  "version": "1.0.0",
+  "description": "Online relocation reimbursement form",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-busboy": "0.0.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.2",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7"
+  }
+}
