@@ -1,8 +1,10 @@
 <head>
 
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css">
+	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> 
 	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic' rel='stylesheet' type='text/css'> <!-- MoneyJS font -->
+	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!-- emoji support -->
 
 	<style>
 	*{
@@ -18,32 +20,56 @@
         background-attachment: fixed;
 	}
 
+	.navbar{
+		height:50px;
+		background-color:rgba(0, 0, 0, 0.8);
+		border:none;
+	}
+
 	.jumbotron{
 		background-color: transparent;
 		color:white;
-		margin-top:10%;
+		margin-top:150px;
 	}
 
-	.jumbotron h1{
+	.caption{
 		margin-bottom:30px;
+	}
+
+
+	.em.em-moneybag{
+		font-size:20px;
+		margin-bottom:10px;
+	}
+	
+	.caption h1.moneyJS{
+		font-family:'Bitter';
+		font-size:25px;
+		font-style:italic;
+	}
+
+	.caption p, h1.moneyJS{
+		display:inline;
 	}
 
 	.jumbotron.text-center a{
 		text-decoration: none;
 		color:white;
-
 	}
 
-	span.enter-site{
-		background-color:#FF8000;
-		padding:12 12 12 12;
+	.enter-site{
+		background-color:#0077C5;
+		padding:12 20 12 20;
+		font-size:17px;
 		border-radius:6px;
 	}
 
-	span.enter-site:hover{
-		background-color:#cc6600;
+	.enter-site:hover{
+		background-color:#005c99;
 		transition:.3s;
 	}
+
+
 
 	</style>
 
@@ -52,10 +78,20 @@
 </head>
 
 <body>
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<img src="img/intuit-logo-blue.png" height="50" width="120">
+	</div>
 	<div class="container">
 		<div class="jumbotron text-center">
-			<h1>Intuit Reimbursement Form</h1>
-			<a href="/"><span class="enter-site">Enter</span></a>
+			<h1>Intern Reimbursement Form</h1>
+			<div class="caption">
+				<p>An app by 
+					<i class="em em-moneybag"></i> <h1 class="moneyJS">MoneyJ$</h1> <i class="em em-moneybag"></i>
+				</p>
+			</div>
+			<br>
+			<a href="/"><span class="enter-site">START <i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i></span></a>
+
 		</div>
 	</div>
 
