@@ -15,6 +15,9 @@
     "express-handlebars": "^3.0.0",
     "fs": "0.0.2",
     "morgan": "^1.7.0",
-    "path": "^0.12.7"
+    "nodemailer": "^2.4.2",
+    "nodemailer-smtp-transport": "^2.5.0",
+    "path": "^0.12.7",
+    "pdffiller": "^0.4.0"
   }
 }
