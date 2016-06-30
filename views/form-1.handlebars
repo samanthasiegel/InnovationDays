@@ -10,40 +10,40 @@
 	<!-- Form field wrapper -->
 	<div class="container">
 		<div class="jumbotron text-center">
-			<form method="post" action="/form-1">
+			<form method="post" action="/form-1" data-parsley-validate>
 			<!-- Title -->
 				<h1 style="font-size:30px; color:#0077C5;">Personal & Tax Information</h1>
 					<!-- Employee Name -->
 					<div class="form-group">
 						<label for="employee_name" class="control-label"> Employee Name </label>
-						<input type="text" name="employee_name">
+						<input type="text" name="employee_name" required>
 					</div>
 					<!-- Mailing Address -->
 					<div class="form-group">
 						<label for="employee_address" class="control-label"> Current Mailing Address </label>
-						<input type="text" name="employee_address">
+						<input type="text" name="employee_address" required>
 					</div>
 					<!-- Phone Number -->
 					<div class="form-group">
 						<label for="employee_phone" class="control-label"> Phone Number </label>
-						<input type="text" name="employee_phone">
+						<input type="text" name="employee_phone" required>
 					</div>
 					<!-- Email -->
 					<div class="form-group">
 						<label for="employee_email" class="control-label"> Email Address </label>
-						<input type="text" name="employee_email">
+						<input type="text" name="employee_email" required>
 					</div>
 					<!-- Salary -->
 					<div class="form-group">
 						<label for="salary" class="control-label"> Monthly Salary </label>
-						<input type="text" name="salary" style="margin-bottom:10px;">
+						<input type="text" name="salary" required style="margin-bottom:10px;">
 					</div>
 					<!-- Itemize Taxes? -->
 					<label for="tax" class="control-label"> Will you itemize on your Federal Tax Return? (check one) </label>
 					<br>
 					<div class="checkbox">
-						<label> <input type="checkbox" name="yes_tax" class="tax" value="On"> Yes </label>
-						<label> <input type="checkbox" name="no_tax" class="tax" value="On"> No </label>
+						<label> <input type="checkbox" name="yes_tax" class="tax" id="yes_tax" value="On"> Yes </label>
+						<label> <input type="checkbox" name="no_tax" class="tax" id="no_tax" value="On"> No </label>
 					</div>
 
 					<br>
@@ -51,10 +51,18 @@
 					<label for="filing" class="control-label"> Your Current Tax Year Filing Status (check one) </label>
 						<br>
 						<div class="checkbox">
-							<label><input type="checkbox" name="single" class="filing" value="On"> Single </label>
-							<label><input type="checkbox" name="filing_jointly" class="filing" value="On"> Married filing jointly </label>
-							<label><input type="checkbox" name="filing_separately" class="filing" value="On"> Married filing separately </label>
-							<label><input type="checkbox" name="head_household" class="filing" value="On"> Head of Household </label>
+							<label><input type="checkbox" name="single" class="filing" id="single" value="On"> 
+								Single 
+							</label>
+							<label><input type="checkbox" name="filing_jointly" class="filing" id="joint" value="On"> 
+								Married filing jointly 
+							</label>
+							<label><input type="checkbox" name="filing_separately" class="filing" id="sep" value="On"> 
+								Married filing separately 
+							</label>
+							<label><input type="checkbox" name="head_household" class="filing" id="head" value="On">
+								Head of Household 
+							</label>
 						</div>
 						<!-- Exemptions? -->
 						<label for="tax" class="control-label">
@@ -62,15 +70,15 @@
 						</label>
 						<br>
 						<div class="checkbox">
-							<label><input type="checkbox" name="yourself" value="On"> Yourself </label>
-							<label><input type="checkbox" name="spouse" value="On"> Spouse </label>
-							<label><input type="checkbox" name="dep_16_under" value="On"> Dependents age 16 or under </label>
-							<label><input type="checkbox" name="dep_17_over" value="On"> Dependents age 17 or over </label>
+							<label><input type="checkbox" name="yourself" id="yourself" value="On"> Yourself </label>
+							<label><input type="checkbox" name="spouse" id="spouse" value="On"> Spouse </label>
+							<label><input type="checkbox" name="dep_16_under" id="dep_16" value="On"> Dependents age 16 or under </label>
+							<label><input type="checkbox" name="dep_17_over" id="dep_17" value="On"> Dependents age 17 or over </label>
 						</div>
 					<!-- Total # exemptions -->
 					<div class="form-group">
 						<label for="total_exemptions" class="control-label"> Total Exemptions </label>
-						<input type="text" name="total_exemptions">
+						<input type="text" name="total_exemptions" id="total" required>
 					</div>
 					<!-- Signature Pad -->
 					<div class="form-group" style="margin-top:40px;">
@@ -84,10 +92,10 @@
 
 					<br>
 
-					<!-- Submit -->
+					<!-- Next -->
 					<div class="form-group">
-						<button class="btn btn-default" id="next" type="submit">
-							NEXT <i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i> 
+						<button class="btn btn-default" id="next" type="submit" style="margin-top:20px;" onClick="validateForm()">
+							NEXT<i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i> 
 						</button>
 					</div>
 
@@ -128,5 +136,34 @@
 		clearButton.addEventListener('click', function(event){
 			signaturePad.clear();
 		});
+
+		/* Validate form - make sure at least one checked box */
+		function validateForm(){
+			var taxCheck = document.getElementById("yes_tax").checked || document.getElementById("no_tax").checked;
+			var filingCheck = document.getElementById("single").checked || document.getElementById("joint").checked
+				|| document.getElementById("sep").checked || document.getElementById("head").checked;
+			var exemptions = 0;
+			if(document.getElementById("yourself").checked) exemptions+=1;
+			if(document.getElementById("spouse").checked) exemptions+=1;
+			if(document.getElementById("dep_16").checked) exemptions+=1;
+			if(document.getElementById("dep_17").checked) exemptions+=1;
+
+			var total = parseInt(document.getElementById("total").value);
+
+			if(!taxCheck){
+				alert("Please check an answer for: Will you itemize on your Federal Tax Return?");
+				
+			} 
+			else if(!filingCheck){
+				alert("Please check an answer for: Your current tax year filing status.");
+			} 
+			else if(exemptions==0){
+				alert("Please check at least one answer for: Indicate the number of exemptions claimed when filing your IRS form 1040");
+			}
+
+			else if(total !== exemptions){
+				alert("Total doesn't match exemptions; please confirm your answers.");
+			} 
+		}
 
 	</script>

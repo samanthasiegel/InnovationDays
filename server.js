@@ -164,6 +164,49 @@ app.get('/form-4', function(req, res){
 
 app.post('/form-4', function(req, res){
 	res.redirect('form-3');
+	var arr = [];
+	arr.push(req.body.exp_date || "");
+	arr.push(req.body.exp_date_2 || "");
+	arr.push(req.body.exp_date_3 || "");
+	arr.push(req.body.exp_date_4 || "");
+
+	arr.push(req.body.exp_location || "");
+	arr.push(req.body.exp_location_2 || "");
+	arr.push(req.body.exp_location_3 || "");
+	arr.push(req.body.exp_location_4 || "");
+
+	arr.push(req.body.exp_airfare || "");
+	arr.push(req.body.exp_airfare_2 || "");
+	arr.push(req.body.exp_airfare_3 || "");
+	arr.push(req.body.exp_airfare_4 || "");
+
+	arr.push(req.body.exp_lodging || "");
+	arr.push(req.body.exp_lodging_2 || "");
+	arr.push(req.body.exp_lodging_3 || "");
+	arr.push(req.body.exp_lodging_4 || "");
+
+	arr.push(req.body.exp_meals || "");
+	arr.push(req.body.exp_meals_2 || "");
+	arr.push(req.body.exp_meals_3 || "");
+	arr.push(req.body.exp_meals_4 || "");
+
+	arr.push(req.body.exp_auto_miles || "");
+	arr.push(req.body.exp_auto_miles_2 || "");
+	arr.push(req.body.exp_auto_miles_3 || "");
+	arr.push(req.body.exp_auto_miles_4 || "");
+
+	console.log("SIZE IS " + arr.length);
+
+	var runner = require("child_process");
+
+    var phpScriptPath = "welcome.php";
+
+    var receipts = arr.join(); 
+
+    runner.exec("php " + phpScriptPath + " " +receipts, function(err, phpResponse, stderr) {
+        if(err) console.log(err); /* log error */
+    console.log( "In here man" + phpResponse );
+    });
 })
 
 //receipt upload
