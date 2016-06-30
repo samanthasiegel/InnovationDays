@@ -1,82 +1,25 @@
 <head>
-	<title> Banking Information Form </title>
-	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"> <!-- Bootstrap -->
-	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> <!-- ^^ -->
-	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- Font Awesome -->
+	<title> Expense Form </title>
 
 	<style>
-		*{
-			font-family: 'Avenir';
-		}
 
-		/* background */
-		body{
-			background:
-				linear-gradient(rgba(0, 0, 0, 0.5),
-								rgba(0, 0, 0, 0.8)),
-				url('img/intuit-campus.jpg');
-			background-size: cover;
-	        background-attachment: fixed;
-	        margin:0 auto;
-
-		}
-
-		/* navigation bar */
-		.navbar{
-			height:50px;
-			background-color:rgba(0, 0, 0, 0.8);
-			border:none;
-			border-radius:0px;
-		}
-
-		/* form wrapper */
-		.jumbotron.text-center{
-			padding-top:20px;
-			background-color:white;
-			border-radius:0px;
-			margin: 0 auto;
-			margin-top:20px;
-			margin-bottom:50px;
-			width:70%;
-  			box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -o-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -webkit-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -moz-box-shadow: 2px 2px 19px #rgba(0, 0, 0, 0.4)
+		/* receipt form wrapper */
+		div.wrapper{
+			margin-bottom:100px;
 		}
 
 		/* form layout */
 
 		.col-md-4 h1{
 			font-size:20px;
+			color:#FF9331;
 			float:left;
 		}
-		.control-label{
-			float:left;
-		}
-
-		.form-group input{
-			width:100%;
-		}	
 
 		h1.meta-label{
 			font-size:15px;
 			text-align:left;
 			margin-left:15px;
-		}
-
-		/* Next button */
-		.btn{
-			margin-top:20px;
-			background-color:#0077C5;
-			border:none;
-			color:white;
-		}
-
-		.btn:hover{
-			background-color:#005c99;
-			color:white;
-			border:none;
-			transition:.3s;
 		}
 		
 	</style>
@@ -92,84 +35,317 @@
 	<div class="container">
 		<div class="jumbotron text-center">
 
-			<form method="post" action="/form-2">
-				<!-- Title -->
-				<h1 style="font-size:30px; color:#0077C5; margin-bottom:30px;">Expenses</h1>
-					<div class="col-md-4">
-						<h1> Receipt 1</h1>
-					</div>
-					<div class="col-md-6 col-md-offset-2">
-						<div class="form-group">
-							<label for="exp_date" class="control-label"> Date(s) </label>
-							<input type="text" name="exp_date" placeholder="DD/MM/YYYY">
+			<form method="post" action="/form-4">
+				<!-- **************************** RECEIPT 1 **********************************-->
+				<div class="wrapper">
+					<!-- Title -->
+					<h1 style="font-size:30px; color:#0077C5; margin-bottom:30px;">Expenses</h1>
+						<div class="col-md-4">
+							<h1> Receipt 1</h1>
+						</div>
+						<!-- Dates -->
+						<div class="col-md-6 col-md-offset-2">
+							<div class="form-group">
+								<label for="exp_date" class="control-label"> Date(s) </label>
+								<input type="text" name="exp_date" placeholder="DD/MM/YYYY">
+							</div>
+						</div>
+						<!-- Location / explanation -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_location" class="control-label"> Location and explanation of expenditures</label>
+								<input type="text" name="exp_location">
+							</div>
+						</div>
+						<!-- Airfare -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_airfare" class="control-label"> Airfare </label>
+								<input type="text" name="exp_airfare">
+							</div>
+						</div>
+						<!-- Lodging -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_lodging" class="control-label"> Lodging (including tax) </label>
+								<input type="text" name="exp_lodging">
+							</div>
+						</div>
+						<!-- Meals -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_meals" class="control-label"> Meals </label>
+								<input type="text" name="exp_meals">
+							</div>
+						</div>
+						<!-- Personal Automobile-->
+						<h1 class="meta-label"> Personal Automobile </h1>
+						<!-- ... # miles -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_miles" class="control-label" style="float:left;"> # of miles </label>
+								<input type="text" name="exp_auto_miles">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_amount" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_auto_amount" placeholder="$0.00">
+							</div>
+						</div>
+						<!-- Miscellaneous -->
+						<h1 class="meta-label"> Miscellaneous </h1>
+						<!-- ... Code -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_code" class="control-label" style="float:left;"> Code </label>
+								<input type="text" name="exp_misc_code">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_amount" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_misc_amount" placeholder="$0.00">
+							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_location" class="control-label"> Location and explanation of expenditures</label>
-							<input type="text" name="exp_location">
+					<hr>
+					<!-- **************************** RECEIPT 2 **********************************-->
+					<div class="wrapper">
+						<div class="col-md-4">
+							<h1> Receipt 2</h1>
+						</div>
+						<!-- Dates -->
+						<div class="col-md-6 col-md-offset-2">
+							<div class="form-group">
+								<label for="exp_date_2" class="control-label"> Date(s) </label>
+								<input type="text" name="exp_date_2" placeholder="DD/MM/YYYY">
+							</div>
+						</div>
+						<!-- Location / explanation -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_location_2" class="control-label"> Location and explanation of expenditures</label>
+								<input type="text" name="exp_location_2">
+							</div>
+						</div>
+						<!-- Airfare -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_airfare_2" class="control-label"> Airfare </label>
+								<input type="text" name="exp_airfare_2">
+							</div>
+						</div>
+						<!-- Lodging -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_lodging_2" class="control-label"> Lodging (including tax) </label>
+								<input type="text" name="exp_lodging_2">
+							</div>
+						</div>
+						<!-- Meals -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_meals_2" class="control-label"> Meals </label>
+								<input type="text" name="exp_meals_2">
+							</div>
+						</div>
+						<!-- Personal Automobile-->
+						<h1 class="meta-label"> Personal Automobile </h1>
+						<!-- ... # miles -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_miles_2" class="control-label" style="float:left;"> # of miles </label>
+								<input type="text" name="exp_auto_miles_2">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_amount_2" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_auto_amount_2" placeholder="$0.00">
+							</div>
+						</div>
+						<!-- Miscellaneous -->
+						<h1 class="meta-label"> Miscellaneous </h1>
+						<!-- ... Code -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_code_2" class="control-label" style="float:left;"> Code </label>
+								<input type="text" name="exp_misc_code_2">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_amount_2" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_misc_amount_2" placeholder="$0.00">
+							</div>
+						</div>
+					</div>
+					<hr>
+
+					<!-- **************************** RECEIPT 3 **********************************-->
+					<div class="wrapper">
+						<div class="col-md-4">
+							<h1> Receipt 3 </h1>
+						</div>
+						<!-- Dates -->
+						<div class="col-md-6 col-md-offset-2">
+							<div class="form-group">
+								<label for="exp_date_3" class="control-label"> Date(s) </label>
+								<input type="text" name="exp_date_3" placeholder="DD/MM/YYYY">
+							</div>
+						</div>
+						<!-- Location / explanation -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_location_3" class="control-label"> Location and explanation of expenditures</label>
+								<input type="text" name="exp_location_3">
+							</div>
+						</div>
+						<!-- Airfare -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_airfare_3" class="control-label"> Airfare </label>
+								<input type="text" name="exp_airfare_3">
+							</div>
+						</div>
+						<!-- Lodging -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_lodging_3" class="control-label"> Lodging (including tax) </label>
+								<input type="text" name="exp_lodging_3">
+							</div>
+						</div>
+						<!-- Meals -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_meals_3" class="control-label"> Meals </label>
+								<input type="text" name="exp_meals_3">
+							</div>
+						</div>
+						<!-- Personal Automobile-->
+						<h1 class="meta-label"> Personal Automobile </h1>
+						<!-- ... # miles -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_miles_3" class="control-label" style="float:left;"> # of miles </label>
+								<input type="text" name="exp_auto_miles_3">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_amount_3" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_auto_amount_3" placeholder="$0.00">
+							</div>
+						</div>
+						<!-- Miscellaneous -->
+						<h1 class="meta-label"> Miscellaneous </h1>
+						<!-- ... Code -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_code_3" class="control-label" style="float:left;"> Code </label>
+								<input type="text" name="exp_misc_code_3">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_amount_3" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_misc_amount_3" placeholder="$0.00">
+							</div>
+						</div>
+					</div>
+					<hr>
+					<!-- **************************** RECEIPT 4 **********************************-->
+					<div class="wrapper">
+						<div class="col-md-4">
+							<h1> Receipt 4 </h1>
+						</div>
+						<!-- Dates -->
+						<div class="col-md-6 col-md-offset-2">
+							<div class="form-group">
+								<label for="exp_date_4" class="control-label"> Date(s) </label>
+								<input type="text" name="exp_date_4" placeholder="DD/MM/YYYY">
+							</div>
+						</div>
+						<!-- Location / explanation -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_location_4" class="control-label"> Location and explanation of expenditures</label>
+								<input type="text" name="exp_location_4">
+							</div>
+						</div>
+						<!-- Airfare -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_airfare_4" class="control-label"> Airfare </label>
+								<input type="text" name="exp_airfare_4">
+							</div>
+						</div>
+						<!-- Lodging -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_lodging_4" class="control-label"> Lodging (including tax) </label>
+								<input type="text" name="exp_lodging_4">
+							</div>
+						</div>
+						<!-- Meals -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_meals_4" class="control-label"> Meals </label>
+								<input type="text" name="exp_meals_4">
+							</div>
+						</div>
+						<!-- Personal Automobile-->
+						<h1 class="meta-label"> Personal Automobile </h1>
+						<!-- ... # miles -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_miles_4" class="control-label" style="float:left;"> # of miles </label>
+								<input type="text" name="exp_auto_miles_4">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_auto_amount_4" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_auto_amount_4" placeholder="$0.00">
+							</div>
+						</div>
+						<!-- Miscellaneous -->
+						<h1 class="meta-label"> Miscellaneous </h1>
+						<!-- ... Code -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_code_4" class="control-label" style="float:left;"> Code </label>
+								<input type="text" name="exp_misc_code_4">
+							</div>
+						</div>
+						<!-- ... amount -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="exp_misc_amount_4" class="control-label" style="float:left;"> Amount </label>
+								<input type="text" name="exp_misc_amount_4" placeholder="$0.00">
+							</div>
 						</div>
 					</div>
 
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_airfare" class="control-label"> Airfare </label>
-							<input type="text" name="exp_airfare">
-						</div>
-					</div>
 
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_lodging" class="control-label"> Lodging (including tax) </label>
-							<input type="text" name="exp_lodging">
-						</div>
-					</div>
 
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_meals" class="control-label"> Meals </label>
-							<input type="text" name="exp_meals">
-						</div>
-					</div>
-
-					<h1 class="meta-label"> Personal Automobile </h1>
-
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_auto_miles" class="control-label" style="float:left;"> # of miles </label>
-							<input type="text" name="exp_auto_miles">
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_auto_amount" class="control-label" style="float:left;"> Amount </label>
-							<span class="input-group-addon">$</span><input type="text" name="exp_auto_amount">
-						</div>
-					</div>
-
-					<h1 class="meta-label"> Miscellaneous </h1>
-
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_misc_code" class="control-label" style="float:left;"> Code </label>
-							<input type="text" name="exp_misc_code">
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<label for="exp_misc_amount" class="control-label" style="float:left;"> Amount </label>
-							<input type="text" name="exp_misc_amount">
-						</div>
-					</div>
-
-					
-
+					<!-- NEXT / Submit -->
 					<div class="form-group">
 						<button class="btn btn-default" type="submit">
 							NEXT <i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i>
 						</button>
 					</div>
+
 			</form>
+
 		</div>
 	</div>
 

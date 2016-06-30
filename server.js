@@ -10,7 +10,11 @@ var port = process.env.PORT || 3000;
 // VIEW ENGINE ====================
 // ================================
 var handlebars = require('express-handlebars')
-	.create({ defaultLayout:false });
+	.create({ 
+		defaultLayout:'main.handlebars',
+		path: 'views',
+		partialsPath: 'views/partials' 
+});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
@@ -67,8 +71,7 @@ var rmdir = require('rmdir');
 // =================================
 // GLOBAL VARIABLES ================
 // =================================
-var name = '';
-var sendTo = '';
+var name, address, phone, email;
 
 
 // =================================
@@ -77,7 +80,7 @@ var sendTo = '';
 
 //home page
 app.get('/', function(req, res){
-	res.render('home');
+	res.render('home', {layout:false});
 });
 
 //Tax form
@@ -114,6 +117,9 @@ app.post('/form-1', function(req, res){
 
 	}
 	name = req.body.employee_name; //globally saves name
+	address = req.body.employee_address;
+	phone = req.body.employee_phone;
+	email = req.body.employee_email;
 	pdfFiller.fillForm(sourcePDFTax, destinationPDFTax, data, function(err){
 		if(err) throw err;
 		console.log("Finished tax form");
@@ -132,7 +138,7 @@ app.post('/form-2', function(req, res){
 	console.log(name);
 	var data = {
 		"banking_institution"	: req.body.bank_name,
-		"home_address"			: req.body.home_address,
+		"home_address"			: address,
 		"routing_number"		: req.body.routing_number,
 		"account_number"		: req.body.account_number,
 		"account_type"			: req.body.account_type,
@@ -140,17 +146,25 @@ app.post('/form-2', function(req, res){
 		"name_printed"			: name || "",
 		"name_signature"		: "x",
 		"date"					: "06/28/2016",
-		"phone"					: "123-456-7890",
-		"email"					: "x"
+		"phone"					: phone,
+		"email"					: email
 	};
-	sendTo = req.body.email;
 	pdfFiller.fillForm(sourcePDF, destinationPDF, data, function(err){
 		if(err) throw err;
 		console.log("Finished ACH form");
 	});
-	res.redirect('/form-3');
+	res.redirect('/form-4');
 
 });
+
+//expense form
+app.get('/form-4', function(req, res){
+	res.render('form-4');
+});
+
+app.post('/form-4', function(req, res){
+	res.redirect('form-3');
+})
 
 //receipt upload
 app.get('/form-3', function(req, res){
@@ -183,7 +197,7 @@ app.post('/form-3', function(req, res){
 
 	var mailOptions = {
 		from: '"Sammi Siegel" <samanthasiegel96@gmail.com>',
-		to: "", //sendTo
+		to: email, //sendTo
 		subject: 'Intern Reimbursement Form',
 		attachments: [{
 			filename: 'output-TAX.pdf', 
@@ -213,9 +227,7 @@ app.post('/form-3', function(req, res){
 	res.redirect('submit');
 });
 
-app.get('/form-4', function(req, res){
-	res.render('form-4');
-});
+
 
 
 //after submitting form

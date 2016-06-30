@@ -1,84 +1,10 @@
 <head>
 	<title> Banking Information Form </title>
-	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"> <!-- Bootstrap -->
-	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> <!-- ^^ -->
-	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- Font Awesome -->
-
-	<style>
-		*{
-			font-family: 'Avenir';
-		}
-
-		/* background */
-		body{
-			background:
-				linear-gradient(rgba(0, 0, 0, 0.5),
-								rgba(0, 0, 0, 0.8)),
-				url('img/intuit-campus.jpg');
-			background-size: cover;
-	        background-attachment: fixed;
-	        margin:0 auto;
-
-		}
-
-		/* navigation bar */
-		.navbar{
-			height:50px;
-			background-color:rgba(0, 0, 0, 0.8);
-			border:none;
-			border-radius:0px;
-		}
-
-		/* form wrapper */
-		.jumbotron.text-center{
-			padding-top:20px;
-			background-color:white;
-			border-radius:0px;
-			margin: 0 auto;
-			margin-top:20px;
-			margin-bottom:50px;
-			width:70%;
-
-  			box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -o-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -webkit-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -moz-box-shadow: 2px 2px 19px #rgba(0, 0, 0, 0.4)
-		}
-
-		/* form layout */
-		.control-label{
-			float:left;
-			margin-bottom:10px;
-		}
-
-		.form-group input{
-			width:100%;
-		}	
-
-		/* Next button */
-		.btn{
-			margin-top:20px;
-			background-color:#0077C5;
-			border:none;
-			color:white;
-		}
-
-		.btn:hover{
-			background-color:#005c99;
-			color:white;
-			border:none;
-			transition:.3s;
-		}
-		
-	</style>
-
 </head>
 
 <body>
 	<!-- Navigation bar (Intuit logo) -->
-	<div class="navbar navbar-default" role="navigation">
-		<img src="img/intuit-logo-blue.png" height="50" width="120">
-	</div>
+	{{>navbar}}
 
 	<div class="container">
 		<div class="jumbotron text-center">
@@ -90,11 +16,6 @@
 					<div class="form-group">
 						<label for="bank_name" class="control-label"> Banking Institution </label>
 						<input type="text" name="bank_name">
-					</div>
-
-					<div class="form-group">
-						<label for="home_address" class="control-label"> Home Address </label>
-						<input type="text" name="home_address">
 					</div>
 
 					<div class="form-group">
@@ -116,11 +37,6 @@
 						<label for="name_on_account" class="control-label"> Name On Account </label>
 						<input type="text" name="name_on_account">
 					</div>
-					<div class="form-group">
-						<label for="email" class="control-label"> Email </label>
-						<input type="text" name="email">
-					</div>
-
 					<div class="form-group">
 						<button class="btn btn-default" type="submit">
 							NEXT <i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i>

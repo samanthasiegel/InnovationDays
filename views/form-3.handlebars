@@ -1,84 +1,13 @@
 <head>
 	<title> Receipt Upload </title>
-	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"> <!-- Bootstrap -->
-	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> <!-- ^^ -->
-	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- Font Awesome -->
+	
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!-- Emoji support -->
-
-	<style>
-		*{
-			font-family: 'Avenir';
-		}
-
-		/* background */
-		body{
-			background:
-				linear-gradient(rgba(0, 0, 0, 0.5),
-								rgba(0, 0, 0, 0.8)),
-				url('img/intuit-campus.jpg');
-			background-size: cover;
-	        background-attachment: fixed;
-	        margin:0 auto;
-
-		}
-
-		/* navigation bar */
-		.navbar{
-			height:50px;
-			background-color:rgba(0, 0, 0, 0.8);
-			border:none;
-			border-radius:0px;
-		}
-
-		/* form wrapper */
-		.jumbotron.text-center{
-			padding-top:20px;
-			background-color:white;
-			border-radius:0px;
-			margin: 0 auto;
-			margin-top:20px;
-			margin-bottom:50px;
-			width:70%;
-
-  			box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -o-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -webkit-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -moz-box-shadow: 2px 2px 19px #rgba(0, 0, 0, 0.4)
-		}
-
-		/* form layout */
-		.control-label{
-			float:left;
-			margin-bottom:10px;
-		}
-
-		.form-group input{
-			width:100%;
-		}	
-
-		/* Next button */
-		.btn{
-			margin-top:20px;
-			background-color:#0077C5;
-			border:none;
-			color:white;
-		}
-
-		.btn:hover{
-			background-color:#005c99;
-			color:white;
-			border:none;
-			transition:.3s;
-		}
-	</style>
 
 </head>
 
 <body>
 	<!-- Navigation bar (Intuit logo) -->
-	<div class="navbar navbar-default" role="navigation">
-		<img src="img/intuit-logo-blue.png" height="50" width="120">
-	</div>
+	{{>navbar}}
 	<!-- Form field wrapper -->
 	<div class="container">
 		<div class="jumbotron text-center">
