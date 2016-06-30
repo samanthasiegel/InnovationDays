@@ -10,14 +10,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "connect-busboy": "0.0.2",
+    "easy-zip2": "^1.0.0",
     "express": "^4.14.0",
+    "express-fileupload": "0.0.5",
     "express-handlebars": "^3.0.0",
     "fs": "0.0.2",
+    "jquery": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "morgan": "^1.7.0",
     "nodemailer": "^2.4.2",
     "nodemailer-smtp-transport": "^2.5.0",
     "path": "^0.12.7",
-    "pdffiller": "^0.4.0"
+    "pdffiller": "^0.4.0",
+    "rmdir": "^1.2.0",
+    "signature_pad": "^1.5.3"
   }
 }

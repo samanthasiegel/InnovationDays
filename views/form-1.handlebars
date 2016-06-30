@@ -1,0 +1,203 @@
+<head>
+	<title> Tax Information Form </title>
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"> <!-- Bootstrap -->
+	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> <!-- ^^ -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script> <!-- Signature Pad -->
+	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- Font Awesome -->
+
+	<style>
+
+		*{
+			font-family: 'Avenir';
+		}
+
+		/* background */
+		body{
+			background:
+				linear-gradient(rgba(0, 0, 0, 0.5),
+								rgba(0, 0, 0, 0.8)),
+				url('img/intuit-campus.jpg');
+			background-size: cover;
+	        background-attachment: fixed;
+	        margin:0 auto;
+
+		}
+
+		/* navigation bar */
+		.navbar{
+			height:50px;
+			background-color:rgba(0, 0, 0, 0.8);
+			border:none;
+			border-radius:0px;
+		}
+
+		/* form wrapper */
+		.jumbotron.text-center{
+			padding-top:20px;
+			background-color:white;
+			border-radius:0px;
+			margin: 0 auto;
+			margin-top:20px;
+			margin-bottom:50px;
+			width:70%;
+
+  			box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
+            -o-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 2px 2px 19px #rgba(0, 0, 0, 0.4)
+		}
+
+		/* form layout */
+		.control-label{
+			float:left;
+			margin-bottom:10px;
+		}
+
+		.checkbox{
+			margin-bottom:20px;
+		}
+
+		.checkbox label{
+			float:left;
+			padding-right:20px;
+			margin-bottom:10px;
+		}
+
+		.form-group input{
+			width:100%;
+		}	
+
+		/* Next button */
+		.btn{
+			background-color:#0077C5;
+			border:none;
+			color:white;
+		}
+
+		.btn:hover{
+			background-color:#005c99;
+			color:white;
+			border:none;
+			transition:.3s;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<!-- Navigation bar (Intuit logo) -->
+	<div class="navbar navbar-default" role="navigation">
+		<img src="img/intuit-logo-blue.png" height="50" width="120">
+	</div>
+
+	<!-- Form field wrapper -->
+	<div class="container">
+		<div class="jumbotron text-center">
+			<form method="post" action="/form-1">
+			<!-- Title -->
+				<h1 style="font-size:30px; color:#0077C5;">Tax Information</h1>
+					<!-- Employee Name -->
+					<div class="form-group">
+						<label for="employee_name" class="control-label"> Employee Name </label>
+						<input type="text" name="employee_name">
+					</div>
+					<!-- Salary -->
+					<div class="form-group">
+						<label for="salary" class="control-label"> Monthly Salary </label>
+						<input type="text" name="salary" style="margin-bottom:10px;">
+					</div>
+					<!-- Itemize Taxes? -->
+					<label for="tax" class="control-label"> Will you itemize on your Federal Tax Return? (check one) </label>
+					<br>
+					<div class="checkbox">
+						<label> <input type="checkbox" name="yes_tax" class="tax" value="On"> Yes </label>
+						<label> <input type="checkbox" name="no_tax" class="tax" value="On"> No </label>
+					</div>
+
+					<br>
+					<!-- Filing status? -->
+					<label for="filing" class="control-label"> Your Current Tax Year Filing Status (check one) </label>
+						<br>
+						<div class="checkbox">
+							<label><input type="checkbox" name="single" class="filing" value="On"> Single </label>
+							<label><input type="checkbox" name="filing_jointly" class="filing" value="On"> Married filing jointly </label>
+							<label><input type="checkbox" name="filing_separately" class="filing" value="On"> Married filing separately </label>
+							<label><input type="checkbox" name="head_household" class="filing" value="On"> Head of Household </label>
+						</div>
+						<!-- Exemptions? -->
+						<label for="tax" class="control-label">
+						Indicate number of exemptions claimed when filing your IRS form 1040 (check all that apply)
+						</label>
+						<br>
+						<div class="checkbox">
+							<label><input type="checkbox" name="yourself" value="On"> Yourself </label>
+							<label><input type="checkbox" name="spouse" value="On"> Spouse </label>
+							<label><input type="checkbox" name="dep_16_under" value="On"> Dependents age 16 or under </label>
+							<label><input type="checkbox" name="dep_17_over" value="On"> Dependents age 17 or over </label>
+						</div>
+					<!-- Total # exemptions -->
+					<div class="form-group">
+						<label for="total_exemptions" class="control-label"> Total Exemptions </label>
+						<input type="text" name="total_exemptions">
+					</div>
+					<!-- Signature Pad -->
+					<div class="form-group" style="margin-top:40px;">
+						<label for="signature-pad" class="control-label">Signature</label>
+						<canvas id="signature-pad" class="signature-pad" width=400 height=200 style="background-color:black">
+						</canvas>
+						<input type="hidden" class="signature" name="signature">
+					
+						<button type="button" id="clear">Clear</button>
+					</div>
+
+					<br>
+
+					<!-- Submit -->
+					<div class="form-group">
+						<button class="btn btn-default" id="next" type="submit">
+							NEXT <i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i> 
+						</button>
+					</div>
+
+
+			</form>
+		</div>
+	</div>
+</body>
+
+
+	<script>
+		/* Functions to check only one field */
+		$('div.checkbox input.filing').on('change', function() {
+    		$('div.checkbox input.filing').not(this).prop('checked', false); 
+    		$('div.checkbox input.filing').not(this).prop('value', 'Off'); 
+		});
+
+		$('div.checkbox input.tax').on('change', function(){
+			$('div.checkbox input.tax').not(this).prop('checked', false);
+    		$('div.checkbox input.tax').not(this).prop('value', 'Off'); 
+		});
+
+		/* Signature pad functions */
+		var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
+					backgroundColor:'rgb(236, 238, 241)',
+					penColor: 'red'
+		});
+
+		var nextButton = document.getElementById('next');
+		var clearButton = document.getElementById('clear');
+
+		nextButton.addEventListener('click', function(event){
+			var data = signaturePad.toDataURL('image/png');
+			$('input.signature').prop('value', data);
+			nextButton.src = data;
+		});
+
+		clearButton.addEventListener('click', function(event){
+			signaturePad.clear();
+		});
+
+	</script>

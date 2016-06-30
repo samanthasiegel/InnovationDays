@@ -213,6 +213,10 @@ app.post('/form-3', function(req, res){
 	res.redirect('submit');
 });
 
+app.get('/form-4', function(req, res){
+	res.render('form-4');
+});
+
 
 //after submitting form
 app.get('/submit', function(req, res, next){

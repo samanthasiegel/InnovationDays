@@ -1,0 +1,36 @@
+{
+  "extends": "airbnb/base",
+
+  // Changes to AirBnB styleguide
+  "env": {
+    "node": false
+  },
+
+  "rules": {
+    /**
+     * Variables
+     */
+    "no-undef": 2,                          // http://eslint.org/docs/rules/no-undef
+    "no-use-before-define": [2, "nofunc"],  // http://eslint.org/docs/rules/no-use-before-define
+    "no-var": 0,                            // http://eslint.org/docs/rules/no-var
+    "one-var": 0,                           // http://eslint.org/docs/rules/no-var
+
+    /**
+     * Style
+     */
+    "quotes": [
+      2, "double", "avoid-escape"           // http://eslint.org/docs/rules/quotes
+    ],
+    "object-curly-spacing": [2, "always"],  // http://eslint.org/docs/rules/object-curly-spacing
+    "space-before-function-paren": [2, {    // http://eslint.org/docs/rules/space-before-function-paren
+      "anonymous": "always",
+      "named": "never"
+    }],
+    "func-names": 0,
+    "key-spacing": [2, {                    // http://eslint.org/docs/rules/key-spacing
+      "beforeColon": false,
+      "afterColon": true,
+      "align": "value"
+    }],
+  },
+}

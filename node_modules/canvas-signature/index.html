@@ -1,0 +1,38 @@
+<!--
+/*
+** @author Eugene Andruszczenko
+** @version 0.1
+** @date February 12th, 2015
+** @description
+** signature is a canvas based signature capture tool
+** there is a dependency on ProcessingJs library available over CDN //cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js
+** @html model (include the two lines below in your html page, styles [css] can be added wherever you have your stylesheets, this example is basic)
+
+<div id='signature-container'><canvas data-processing-sources='signature.pde' id='signature'></canvas></div>
+<script src='//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js'></script>
+
+** @style - do whatever you want
+*/
+-->
+<style>
+	div#signature_container canvas,
+	div#signature_container img
+	{
+		border:dashed 1px #CCCCCC;
+	}
+</style>
+
+<div id="signature_container"><canvas data-processing-sources="signature.pde" id="signature"></canvas></div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+
+<script>
+/*
+** @method savedSignature
+** @description this is an example callback for the signature sketch, you can pretty much do anything you need, this callback just dumps the image src into a new window for example
+*/
+function savedSignature()
+{
+	var img = document.getElementById("signature_iamge");
+	window.open(img.getAttribute('src'))
+}
+</script>
