@@ -163,6 +163,7 @@ app.get('/form-4', function(req, res){
 });
 
 app.post('/form-4', function(req, res){
+	console.log(name, phone, address, email);
 	res.redirect('form-3');
 	var arr = [];
 	arr.push(req.body.exp_date || "");
@@ -194,6 +195,10 @@ app.post('/form-4', function(req, res){
 	arr.push(req.body.exp_auto_miles_2 || "");
 	arr.push(req.body.exp_auto_miles_3 || "");
 	arr.push(req.body.exp_auto_miles_4 || "");
+	arr.push(name || "");
+	arr.push(phone || "");
+	arr.push(address || "");
+	arr.push(email || "");
 
 	console.log("SIZE IS " + arr.length);
 
@@ -250,6 +255,10 @@ app.post('/form-3', function(req, res){
 			filename: 'output-ACH.pdf',
 			path: "./output-ACH.pdf",
 			contentType: 'application/pdf' 
+		}, {
+			filename: 'output-Expense.xlsx',
+			path: "./ExpenseCopy1.xlsx",
+			contentType: 'application/pdf'
 		}, {
 			filename: 'receipts.zip',
 			path: "./testing.zip"

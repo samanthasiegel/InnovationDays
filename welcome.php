@@ -30,10 +30,10 @@ $objPHPExcel->setActiveSheetIndex(0);
 */
 
 // personal info
-$objPHPExcel->getActiveSheet()->setCellValue('D4', 'Jamal Pace');
-$objPHPExcel->getActiveSheet()->setCellValue('J4', '123-456-7890');
-$objPHPExcel->getActiveSheet()->setCellValue('D5', '123 Lit Lane');
-$objPHPExcel->getActiveSheet()->setCellValue('J5', 'jamal_pace@intuit.com');
+// $objPHPExcel->getActiveSheet()->setCellValue('D4', 'Jamal Pace');
+// $objPHPExcel->getActiveSheet()->setCellValue('J4', '123-456-7890');
+// $objPHPExcel->getActiveSheet()->setCellValue('D5', '123 Lit Lane');
+// $objPHPExcel->getActiveSheet()->setCellValue('J5', 'jamal_pace@intuit.com');
 
 // dates
 $objPHPExcel->getActiveSheet()->setCellValue('B13', $params[0]);
@@ -75,6 +75,12 @@ $objPHPExcel->getActiveSheet()->setCellValue('H13', $params[20]);
 $objPHPExcel->getActiveSheet()->setCellValue('H14', $params[21]);
 $objPHPExcel->getActiveSheet()->setCellValue('H15', $params[22]);
 $objPHPExcel->getActiveSheet()->setCellValue('H16', $params[23]);
+
+// personal info
+$objPHPExcel->getActiveSheet()->setCellValue('D4', $params[24]);
+$objPHPExcel->getActiveSheet()->setCellValue('J4', $params[25]);
+$objPHPExcel->getActiveSheet()->setCellValue('D5', $params[26]);
+$objPHPExcel->getActiveSheet()->setCellValue('J5', $params[27]);
 // $objPHPExcel->getActiveSheet()->setCellValue('H17', $params[1]);
 
 //$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
