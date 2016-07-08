@@ -89,7 +89,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_airfare" class="control-label"> Airfare </label>
-								<input type="text" name="exp_airfare" class="input form-control" data-toggle="tooltip" placeholder="$0.00">
+								<input type="text" name="exp_airfare" class="input form-control" data-toggle="tooltip" placeholder="$0.00" id="airfare">
 							
 							</div>
 						</div>
@@ -272,6 +272,12 @@
 
 
 	<script>
+
+		$(document).ready(function() {
+    		$('#airfare').tooltip({title: "Please enter without '$' - just numbers and decimal point!",
+    								trigger: "focus", placement:"bottom"});
+		});
+
 		function validateForm(){
 			var formField = document.getElementsByClassName("input form-control");
 			var len = formField.length;
@@ -283,6 +289,8 @@
 			}
 			return true;
 		}
+
+
 	</script>
 
 </body>

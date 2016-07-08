@@ -1,6 +1,15 @@
 <head>
 	<title> Tax Information Form </title>
+	<style>
+		.tooltip-inner{
+			max-width:250px;
+			width:250px;
+			padding:10px 10px 10px 10px;
+			background-color:rgba(0, 0, 0, 0.9);
+		}
 
+
+	</style>
 
 
 </head>
@@ -135,6 +144,11 @@
 
 
 	<script>
+
+		$(document).ready(function() {
+    		$('#total').tooltip({title: "Enter the total number of checked boxes from the question above.",
+    								trigger: "focus", placement:"bottom"});
+		});
 		/* Functions to check only one field */
 		$('div.checkbox input.filing').on('change', function() {
     		$('div.checkbox input.filing').not(this).prop('checked', false); 
