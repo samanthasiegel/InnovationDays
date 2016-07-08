@@ -1,67 +1,5 @@
 <head>
 	<title> Submit </title>
-	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css"> <!-- Bootstrap -->
-	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> <!-- ^^ -->
-	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css"> <!-- Font Awesome -->
-	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!-- Emoji support -->
-
-	<style>
-		*{
-			font-family: 'Avenir';
-		}
-
-		/* background */
-		body{
-			background:
-				linear-gradient(rgba(0, 0, 0, 0.5),
-								rgba(0, 0, 0, 0.8)),
-				url('img/intuit-campus.jpg');
-			background-size: cover;
-	        background-attachment: fixed;
-	        margin:0 auto;
-
-		}
-
-		/* navigation bar */
-		.navbar{
-			height:50px;
-			background-color:rgba(0, 0, 0, 0.8);
-			border:none;
-			border-radius:0px;
-
-		}
-
-		/* form wrapper */
-		.jumbotron.text-center{
-			padding-top:20px;
-			background-color:white;
-			border-radius:0px;
-			margin: 0 auto;
-			margin-top:20px;
-			margin-bottom:50px;
-			width:70%;
-
-  			box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -o-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -webkit-box-shadow: 2px 2px 19px rgba(0, 0, 0, 0.4);
-            -moz-box-shadow: 2px 2px 19px #rgba(0, 0, 0, 0.4);
-		}
-
-		/* Home button */
-		.btn{
-			background-color:#0077C5;
-			border:none;
-			color:white;
-		}
-
-		.btn:hover{
-			background-color:#005c99;
-			color:white;
-			border:none;
-			transition:.3s;
-		}
-
-	</style>
 
 </head>
 
@@ -73,6 +11,33 @@
 
 	<div class="container">
 		<div class="jumbotron text-center">
+			<!-- Steps of form -->
+			<div class="ui four top steps">
+				<div class="step" style="border-radius:0px;">
+		    		<i class="fa fa-check"></i>
+		    		<div class="content" >
+		      			<div class="title">Personal & Tax Info</div>
+		    		</div>
+		  		</div>
+		  		<div class="step">
+					<i class="fa fa-check"></i>
+		    		<div class="content">
+			      		<div class="title">Bank Info</div>
+			    	</div>
+			  	</div>
+			  	<div class=" step">
+			  		<i class="fa fa-check"></i>
+			    	<div class="content">
+			      		<div class="title">Expense Form</div>
+			   		</div>
+			 	</div>
+			 	<div class="step" style="border-radius:0px;">
+			    	<i class="fa fa-check"></i>
+			    	<div class="content" >
+			      		<div class="title">Receipts & Send</div>
+			    	</div>
+			  	</div>
+			</div>
 			<h1 style="font-size:30px; color:#0077C5;"> Thanks! </h1>
 			<p style="font-size:15px;">Your reimbursement form will be sent to Odyssey, and you will receive an email copy.</p>
 			<br>

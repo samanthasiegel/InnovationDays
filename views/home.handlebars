@@ -1,16 +1,20 @@
 <head>
 
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/vendor/bootstrap/css/social/bootstrap-social.css"> 
 	<link rel="stylesheet" href="/vendor/font-awesome-4.6.3/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic' rel='stylesheet' type='text/css'> <!-- MoneyJS font -->
 	<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!-- emoji support -->
-
+	<link rel="stylesheet" type="text/css" href="/vendor/semantic/semantic.min.css"> <!-- semantic UI -->
 	<style>
+
+	/* BACKGROUND * * * * * * * * * * * * * * * * * * * * * * * * /
+
+		/* Set global (default) font */
 		*{
 			font-family:'Avenir';
 		}
 
+		/* Fixed and covered background image */
 		body{
 			background:
 				linear-gradient(rgba(0, 0, 0, 0.5),
@@ -20,80 +24,143 @@
 	        background-attachment: fixed;
 		}
 
+	/* NAVIGATION BAR * * * * * * * * * * * * * * * * * * * * * * /
+
+		/* Changes border and color of navbar from Bootstrap */
 		.navbar{
-			height:50px;
 			background-color:rgba(0, 0, 0, 0.8);
+			border-radius:0px;
 			border:none;
 		}
 
+		/* Repositions Intuit logo in navbar */
+		.navbar-brand img{
+			margin-left:-5px;
+			margin-top:-17px;
+		}
+
+		/* Changes color of navbar text from Bootstrap */
+		.nav.navbar-nav li a{
+			color:white;
+			font-weight:bold;
+			margin-right:10px;
+		}
+
+		/* Changes color of navbar text on hover from Bootstap */
+		.nav.navbar-nav li a:hover{
+			transition:.3s;
+			color:white;
+		}
+
+		/* Creates underline effect on hover */
+		.nav.navbar-nav li:after{
+			content:'';
+			display:block;
+			margin:auto;
+			height:5px;
+			margin-top:-10px;
+			width:0px;
+			background: transparent;
+			transition: width .5s ease, background-color .5s ease;
+		}
+
+		/* Style for underline effect on hover */
+		.nav.navbar-nav li:hover:after{
+			width:100%;
+			background:#0077C5;
+		}
+	/* TITLE DIV * * * * * * * * * * * * * * * * * * * * * * * * * /
+
+		/* Center title text */
 		.jumbotron{
 			background-color: transparent;
 			color:white;
-			margin-top:150px;
+			margin-top:10%;
 		}
 
+		/* Placement for 'An app by...' */
 		.caption{
 			margin-bottom:30px;
 		}
 
-
+		/* Size and placement of MoneyJ$ emojis */
 		.em.em-moneybag{
 			font-size:20px;
 			margin-bottom:10px;
 		}
 		
+		/* Font style for MoneyJ$ logo */
 		.caption h1.moneyJS{
 			font-family:'Bitter';
 			font-size:25px;
 			font-style:italic;
 		}
 
+		/* Display caption and MoneyJ$ logo inline */
 		.caption p, h1.moneyJS{
 			display:inline;
 		}
 
-		.jumbotron.text-center a{
+	/* START BUTTON * * * * * * * * * * * * * * * * * * * * * * * * */
+
+		/* Styles 'START' button */
+		#start{
+			background-color:#0077C5;
+			color:white;
+			padding:12 20 12 20;
+			font-size:17px;
+			border-radius:6px;
 			text-decoration: none;
 			color:white;
 		}
 
-		.enter-site{
-			background-color:#0077C5;
-			padding:12 20 12 20;
-			font-size:17px;
-			border-radius:6px;
-		}
-
-		.enter-site:hover{
+		/* Styles 'START' button on hover */
+		#start:hover{
 			background-color:#005c99;
 			transition:.3s;
 		}
-
-
-
 
 	</style>
 
 </head>
 
 <body>
-	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<img src="img/intuit-logo-blue.png" height="50" width="120">
-	</div>
+
+	<!-- NAV BAR -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/"><img src="img/intuit-logo-blue.png" height="50" width="120"></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"> WHAT WE DO </a> </li>
+				<li style="margin-right:10px;"><a href="#"> WHO WE ARE </a> </li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- TITLE DIV -->
 	<div class="container">
 		<div class="jumbotron text-center">
+
+			<!-- TITLE -->
 			<h1>Intern Reimbursement Form</h1>
+
+			<!-- CAPTION -->
 			<div class="caption">
 				<p>An app by 
 					<i class="em em-moneybag"></i> <h1 class="moneyJS">MoneyJ$</h1> <i class="em em-moneybag"></i>
 				</p>
 			</div>
+
+			<!-- START BUTTON -->
 			<br>
-			<a href="/form-1"><span class="enter-site">START 
-				<i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i>
+				<a href="/form-1" class="start"><span class="ui right labeled icon button" id="start"> START 
+				<i class="right chevron icon"></i>
 			</span></a>
 
 		</div>
 	</div>
+
 
 </body>

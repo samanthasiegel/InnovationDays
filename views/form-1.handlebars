@@ -1,42 +1,70 @@
 <head>
 	<title> Tax Information Form </title>
+
+
+
 </head>
 
 <body>
-
 	<!-- Navigation bar (Intuit logo) -->
 	{{>navbar}}
 
 	<!-- Form field wrapper -->
+	
 	<div class="container">
+	<!-- Steps for form -->
 		<div class="jumbotron text-center">
-			<form method="post" action="/form-1" data-parsley-validate>
+
+		<div class="ui four top steps">
+			<div class="active step" style="border-radius:0px;">
+	    		<i class="em em-sunglasses" style="margin-right:10px; font-size:13px;"></i>
+	    		<div class="content" >
+	      			<div class="title">Personal & Tax Info</div>
+	    		</div>
+	  		</div>
+	  		<div class="step">
+	    		<div class="content">
+		      		<div class="title">Bank Info</div>
+		    	</div>
+		  	</div>
+		  	<div class="step">
+		    	<div class="content">
+		      		<div class="title">Expense Form</div>
+		   		</div>
+		 	</div>
+		 	<div class="step" style="border-radius:0px;">
+		    	<div class="content" >
+		      		<div class="title">Receipts & Submit</div>
+		    	</div>
+		  	</div>
+		</div>
+		<form method="post" action="/form-1" data-parsley-validate>
 			<!-- Title -->
 				<h1 style="font-size:30px; color:#0077C5;">Personal & Tax Information</h1>
 					<!-- Employee Name -->
 					<div class="form-group">
 						<label for="employee_name" class="control-label"> Employee Name </label>
-						<input type="text" name="employee_name" required>
+						<input type="text" name="employee_name" class="form-control" required>
 					</div>
 					<!-- Mailing Address -->
 					<div class="form-group">
 						<label for="employee_address" class="control-label"> Current Mailing Address </label>
-						<input type="text" name="employee_address" required>
+						<input type="text" name="employee_address" class="form-control" required>
 					</div>
 					<!-- Phone Number -->
 					<div class="form-group">
 						<label for="employee_phone" class="control-label"> Phone Number </label>
-						<input type="text" name="employee_phone" required>
+						<input type="text" name="employee_phone" class="form-control" required>
 					</div>
 					<!-- Email -->
 					<div class="form-group">
 						<label for="employee_email" class="control-label"> Email Address </label>
-						<input type="text" name="employee_email" required>
+						<input type="text" name="employee_email" class="form-control" required>
 					</div>
 					<!-- Salary -->
 					<div class="form-group">
 						<label for="salary" class="control-label"> Monthly Salary </label>
-						<input type="text" name="salary" required style="margin-bottom:10px;">
+						<input type="text" name="salary" class="form-control" required style="margin-bottom:10px;">
 					</div>
 					<!-- Itemize Taxes? -->
 					<label for="tax" class="control-label"> Will you itemize on your Federal Tax Return? (check one) </label>
@@ -78,7 +106,7 @@
 					<!-- Total # exemptions -->
 					<div class="form-group">
 						<label for="total_exemptions" class="control-label"> Total Exemptions </label>
-						<input type="text" name="total_exemptions" id="total" required>
+						<input type="text" name="total_exemptions" class="form-control" id="total" required>
 					</div>
 					<!-- Signature Pad -->
 					<div class="form-group" style="margin-top:40px;">
@@ -152,18 +180,23 @@
 
 			if(!taxCheck){
 				alert("Please check an answer for: Will you itemize on your Federal Tax Return?");
+				return false;
 				
 			} 
 			else if(!filingCheck){
 				alert("Please check an answer for: Your current tax year filing status.");
+				return false;
 			} 
 			else if(exemptions==0){
 				alert("Please check at least one answer for: Indicate the number of exemptions claimed when filing your IRS form 1040");
+				return false;
 			}
 
 			else if(total !== exemptions){
 				alert("Total doesn't match exemptions; please confirm your answers.");
+				return false;
 			} 
+			return true;
 		}
 
 	</script>

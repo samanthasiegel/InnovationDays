@@ -1,13 +1,16 @@
 <head>
 	<title> Expense Form </title>
+	<link rel="stylesheet" type="text/css" href="/vendor/semantic/components/input.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/semantic/components/icon.min.css">
 
 	<style>
 
 		/* receipt form wrapper */
 		div.wrapper{
-			margin-bottom:100px;
+			margin-bottom:20px;
 		}
 
+		
 		/* form layout */
 
 		.col-md-4 h1{
@@ -34,12 +37,37 @@
 
 	<div class="container">
 		<div class="jumbotron text-center">
-
+			<!-- Steps of form -->
+			<div class="ui four top steps">
+				<div class="step" style="border-radius:0px;">
+		    		<i class="fa fa-check"></i>
+		    		<div class="content" >
+		      			<div class="title">Personal & Tax Info</div>
+		    		</div>
+		  		</div>
+		  		<div class="step">
+					<i class="fa fa-check"></i>
+		    		<div class="content">
+			      		<div class="title">Bank Info</div>
+			    	</div>
+			  	</div>
+			  	<div class="active step">
+			  		<i class="em em-tada"></i>
+			    	<div class="content">
+			      		<div class="title">Expense Form</div>
+			   		</div>
+			 	</div>
+			 	<div class="step" style="border-radius:0px;">
+			    	<div class="content" >
+			      		<div class="title">Receipts & Submit</div>
+			    	</div>
+			  	</div>
+			</div>
 			<form method="post" action="/form-4" id="form">
 				<!-- **************************** RECEIPT 1 **********************************-->
-				<div class="wrapper">
+				<div class="ui grid">
 					<!-- Title -->
-					<h1 style="font-size:30px; color:#0077C5; margin-bottom:30px;">Expenses</h1>
+					<h1 style="font-size:30px; color:#0077C5; margin-bottom:10px;">Expenses</h1>
 						<div class="col-md-4" style="margin-right:100%;">
 							<h1> Receipt 1</h1>
 						</div>
@@ -47,42 +75,43 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_date" class="control-label"> Date(s) </label>
-								<input type="text" name="exp_date" placeholder="DD/MM/YYYY">
+								<input type="text" name="exp_date" class="form-control" placeholder="DD/MM/YYYY">
 							</div>
 						</div>
 						<!-- Location / explanation -->
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_location" class="control-label"> Location and explanation of expenditures</label>
-								<input type="text" name="exp_location">
+								<input type="text" class="form-control" name="exp_location">
 							</div>
 						</div>
 						<!-- Airfare -->
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_airfare" class="control-label"> Airfare </label>
-								<input type="text" name="exp_airfare" class="input" placeholder="$0.00">
+								<input type="text" name="exp_airfare" class="input form-control" data-toggle="tooltip" placeholder="$0.00">
+							
 							</div>
 						</div>
 						<!-- Lodging -->
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_lodging" class="control-label"> Lodging (including tax) </label>
-								<input type="text" name="exp_lodging" class="input" placeholder="$0.00">
+								<input type="text" name="exp_lodging" class="input form-control" placeholder="$0.00">
 							</div>
 						</div>
 						<!-- Meals -->
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_meals" class="control-label"> Meals </label>
-								<input type="text" name="exp_meals" class="input" placeholder="$0.00">
+								<input type="text" name="exp_meals" class="input form-control" placeholder="$0.00">
 							</div>
 						</div>
 						<!-- Personal Automobile-->
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="exp_auto_miles" class="control-label" style="float:left;"> Personal Automobile - # of miles </label>
-								<input type="text" name="exp_auto_miles">
+								<input type="text" name="exp_auto_miles" class="form-control">
 							</div>
 						</div>
 					</div>
@@ -95,42 +124,42 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_date_2" class="control-label"> Date(s) </label>
-							<input type="text" name="exp_date_2" placeholder="DD/MM/YYYY">
+							<input type="text" name="exp_date_2" class="form-control" placeholder="DD/MM/YYYY">
 						</div>
 					</div>
 					<!-- Location / explanation -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_location_2" class="control-label"> Location and explanation of expenditures</label>
-							<input type="text" name="exp_location_2">
+							<input type="text" name="exp_location_2" class="form-control">
 						</div>
 					</div>
 					<!-- Airfare -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_airfare_2" class="control-label"> Airfare </label>
-							<input type="text" name="exp_airfare_2" class="input" placeholder="$0.00">
+							<input type="text" name="exp_airfare_2" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Lodging -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_lodging_2" class="control-label"> Lodging (including tax) </label>
-							<input type="text" name="exp_lodging_2" class="input" placeholder="$0.00">
+							<input type="text" name="exp_lodging_2" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Meals -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_meals_2" class="control-label"> Meals </label>
-							<input type="text" name="exp_meals_2" class="input" placeholder="$0.00">
+							<input type="text" name="exp_meals_2" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Personal Automobile-->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_auto_miles_2" class="control-label" style="float:left;"> Personal Automobile - # of miles </label>
-							<input type="text" name="exp_auto_miles_2">
+							<input type="text" name="exp_auto_miles_2" class="form-control">
 						</div>
 					</div>
 					<hr>
@@ -143,42 +172,42 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_date_3" class="control-label"> Date(s) </label>
-							<input type="text" name="exp_date_3" placeholder="DD/MM/YYYY">
+							<input type="text" name="exp_date_3" class="form-control" placeholder="DD/MM/YYYY">
 						</div>
 					</div>
 					<!-- Location / explanation -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_location_3" class="control-label"> Location and explanation of expenditures</label>
-							<input type="text" name="exp_location_3">
+							<input type="text" class="form-control" name="exp_location_3">
 						</div>
 					</div>
 					<!-- Airfare -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_airfare_3" class="control-label"> Airfare </label>
-							<input type="text" name="exp_airfare_3" class="input" placeholder="$0.00">
+							<input type="text" name="exp_airfare_3" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Lodging -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_lodging_3" class="control-label"> Lodging (including tax) </label>
-							<input type="text" name="exp_lodging_3" class="input" placeholder="$0.00">
+							<input type="text" name="exp_lodging_3" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Meals -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_meals_3" class="control-label"> Meals </label>
-							<input type="text" name="exp_meals_3" class="input" placeholder="$0.00">
+							<input type="text" name="exp_meals_3" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Personal Automobile-->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_auto_miles_3" class="control-label" style="float:left;"> Personal Automobile - # of miles </label>
-							<input type="text" name="exp_auto_miles_3">
+							<input type="text" name="exp_auto_miles_3" class="form-control">
 						</div>
 					</div>
 					<hr>
@@ -190,42 +219,42 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_date_4" class="control-label"> Date(s) </label>
-							<input type="text" name="exp_date_4" placeholder="DD/MM/YYYY">
+							<input type="text" name="exp_date_4" class="form-control" placeholder="DD/MM/YYYY">
 						</div>
 					</div>
 					<!-- Location / explanation -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_location_4" class="control-label"> Location and explanation of expenditures</label>
-							<input type="text" name="exp_location_4">
+							<input type="text" name="exp_location_4" class="form-control">
 						</div>
 					</div>
 					<!-- Airfare -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_airfare_4" class="control-label"> Airfare </label>
-							<input type="text" name="exp_airfare_4" class="input" placeholder="$0.00">
+							<input type="text" name="exp_airfare_4" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Lodging -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_lodging_4" class="control-label"> Lodging (including tax) </label>
-							<input type="text" name="exp_lodging_4" class="input" placeholder="$0.00">
+							<input type="text" name="exp_lodging_4" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Meals -->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_meals_4" class="control-label"> Meals </label>
-							<input type="text" name="exp_meals_4" class="input" placeholder="$0.00">
+							<input type="text" name="exp_meals_4" class="input form-control" placeholder="$0.00">
 						</div>
 					</div>
 					<!-- Personal Automobile-->
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="exp_auto_miles_4" class="control-label" style="float:left;"> Personal Automobile - # of miles </label>
-							<input type="text" name="exp_auto_miles_4">
+							<input type="text" name="exp_auto_miles_4" class="form-control">
 						</div>
 					</div>
 					<!-- Next -->
@@ -234,16 +263,17 @@
 							NEXT<i class="fa fa-angle-right" aria-hidden="true" style="margin-left:5px;"></i> 
 						</button>
 					</div>
-
 			</form>
 
 		</div>
 	</div>
+	
+
 
 
 	<script>
 		function validateForm(){
-			var formField = document.getElementsByClassName("input");
+			var formField = document.getElementsByClassName("input form-control");
 			var len = formField.length;
 			for(var i=0; i<len; i++){
 				if(formField[i].value.indexOf("$")!== -1){

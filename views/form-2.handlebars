@@ -8,6 +8,31 @@
 
 	<div class="container">
 		<div class="jumbotron text-center">
+			<!-- Steps of form -->
+			<div class="ui four top steps">
+				<div class="step" style="border-radius:0px;">
+		    		<i class="fa fa-check"></i>
+		    		<div class="content" >
+		      			<div class="title">Personal & Tax Info</div>
+		    		</div>
+		  		</div>
+		  		<div class="active step">
+					<i class="em em-money_with_wings"></i>
+		    		<div class="content">
+			      		<div class="title">Bank Info</div>
+			    	</div>
+			  	</div>
+			  	<div class="step">
+			    	<div class="content">
+			      		<div class="title">Expense Form</div>
+			   		</div>
+			 	</div>
+			 	<div class="step" style="border-radius:0px;">
+			    	<div class="content" >
+			      		<div class="title">Receipts & Submit</div>
+			    	</div>
+			  	</div>
+			</div>
 
 			<form method="post" action="/form-2" data-parsley-validate>
 				<!-- Title -->
@@ -15,27 +40,27 @@
 					<!-- Bank Name -->
 					<div class="form-group">
 						<label for="bank_name" class="control-label"> Banking Institution </label>
-						<input type="text" name="bank_name" required>
+						<input type="text" name="bank_name" class="form-control" required>
 					</div>
 					<!-- Routing # -->
 					<div class="form-group">
 						<label for="routing_number" class="control-label"> Routing Number </label>
-						<input type="text" name="routing_number" required>
+						<input type="text" name="routing_number" class="form-control" required>
 					</div>
 					<!-- Account # -->
 					<div class="form-group">
 						<label for="account_number" class="control-label"> Account Number </label>
-						<input type="text" name="account_number" required>
+						<input type="text" name="account_number" class="form-control" required>
 					</div>
 					<!-- Account Type -->
 					<div class="form-group">
 						<label for="account_type" class="control-label"> Account Type </label>
-						<input type="text" name="account_type" required>
+						<input type="text" name="account_type" class="form-control" required>
 					</div>
 					<!-- Name on Accoint -->
 					<div class="form-group">
 						<label for="name_on_account" class="control-label"> Name On Account </label>
-						<input type="text" name="name_on_account" required>
+						<input type="text" name="name_on_account" class="form-control" required>
 					</div>
 					<!-- Next -->
 					{{>button}}

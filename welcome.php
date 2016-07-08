@@ -29,7 +29,7 @@ $objPHPExcel->setActiveSheetIndex(0);
 * H - Miles (auto)
 */
 
-// personal info
+
 // $objPHPExcel->getActiveSheet()->setCellValue('D4', 'Jamal Pace');
 // $objPHPExcel->getActiveSheet()->setCellValue('J4', '123-456-7890');
 // $objPHPExcel->getActiveSheet()->setCellValue('D5', '123 Lit Lane');
@@ -81,7 +81,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('D4', $params[24]);
 $objPHPExcel->getActiveSheet()->setCellValue('J4', $params[25]);
 $objPHPExcel->getActiveSheet()->setCellValue('D5', $params[26]);
 $objPHPExcel->getActiveSheet()->setCellValue('J5', $params[27]);
-// $objPHPExcel->getActiveSheet()->setCellValue('H17', $params[1]);
+//objPHPExcel->getActiveSheet()->setCellValue('H17', $params[1]);
 
 //$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');

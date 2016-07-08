@@ -24,6 +24,7 @@
     "path": "^0.12.7",
     "pdffiller": "^0.4.0",
     "rmdir": "^1.2.0",
+    "semantic-ui": "^2.2.1",
     "signature_pad": "^1.5.3"
   }
 }

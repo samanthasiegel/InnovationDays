@@ -1,14 +1,18 @@
-// ===============================
-// SET UP APP ====================
-// ===============================
+// =========================================
+// SET UP APP ==============================
+// =========================================
+// Uses express router; sets port
+
 var express = require('express');
 var app = express();
 var router = express.Router();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 
-// ================================
-// VIEW ENGINE ====================
-// ================================
+// =========================================
+// VIEW ENGINE =============================
+// =========================================
+// Creates handlebars engine
+
 var handlebars = require('express-handlebars')
 	.create({ 
 		defaultLayout:'main.handlebars',
@@ -20,37 +24,38 @@ app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
 
 
-// ================================
-// MIDDLEWARE =====================
-// ================================
+// =========================================
+// MIDDLEWARE ==============================
+// =========================================
+// Implements necessary npm packages
 
-// log HTTP request status
-var logger = require('morgan');
+// logs HTTP requests and responses to console
+// used for development/debugging
+var logger = require('morgan'); 
 app.use(logger('dev'));
 
-// parse html form
-//var busboy = require('connect-busboy'); //for images
-//app.use(busboy());
-
-var busboy = require('connect-busboy');
+// get image uploads from HTML form
+var busboy = require('connect-busboy'); 
+var fs = require('fs'); 
 app.use(busboy());
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true})); //get information from html forms 
+
+// get text input from HTML forms
+var bodyParser = require('body-parser'); 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-// help parse form
-var path = require('path');
-var fs = require('fs');
+var path = require('path'); // TODO: is this necessary?
 
-// pdf 
+// fills pdf fields
 var pdfFiller = require('pdffiller');
+
 // source/output for pdfs
 var sourcePDF = "final-ACH.pdf";
 var destinationPDF =  "output-ACH.pdf";
 var sourcePDFTax = "final-TAX.pdf";
 var destinationPDFTax =  "output-TAX.pdf";
 
-// email 
+// configures email
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var transporter = nodemailer.createTransport(smtpTransport({
@@ -61,22 +66,22 @@ var transporter = nodemailer.createTransport(smtpTransport({
 	}
 }));
 
-//zip 
+// zips folder for receipt upload
 var EasyZip = require('easy-zip2').EasyZip;
+
 //remove directory
+//TODO: find a better way to do this
 var rmdir = require('rmdir');
-
-
-
-// =================================
-// GLOBAL VARIABLES ================
-// =================================
-var name, address, phone, email;
 
 
 // =================================
 // ROUTES ========================== 
 // =================================
+
+//TODO: put all routes into route.js file
+//var routes = require('./app/routes.js')(app, router);
+
+
 
 //home page
 app.get('/', function(req, res){
@@ -171,7 +176,7 @@ app.post('/form-4', function(req, res){
 	arr.push(req.body.exp_date_3 || "");
 	arr.push(req.body.exp_date_4 || "");
 
-	arr.push(req.body.exp_location || "");
+	arr.push("Example\tHere");
 	arr.push(req.body.exp_location_2 || "");
 	arr.push(req.body.exp_location_3 || "");
 	arr.push(req.body.exp_location_4 || "");
@@ -195,12 +200,13 @@ app.post('/form-4', function(req, res){
 	arr.push(req.body.exp_auto_miles_2 || "");
 	arr.push(req.body.exp_auto_miles_3 || "");
 	arr.push(req.body.exp_auto_miles_4 || "");
-	arr.push(name || "");
-	arr.push(phone || "");
-	arr.push(address || "");
-	arr.push(email || "");
+	arr.push(name);
+	arr.push(phone);
+	arr.push(address);
+	arr.push(email);
 
 	console.log("SIZE IS " + arr.length);
+	console.log(arr);
 
 	var runner = require("child_process");
 
@@ -368,6 +374,10 @@ app.post('/test-mail', function(req, res){
 //test form UI
 app.get('/personal-info', function(req, res){
 	res.render('personal-info');
+});
+
+app.get('/home-test', function(req, res){
+	res.render('home-test', {layout:false});
 });
 
 // ==================================
