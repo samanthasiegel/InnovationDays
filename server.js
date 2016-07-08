@@ -176,7 +176,7 @@ app.post('/form-4', function(req, res){
 	arr.push(req.body.exp_date_3 || "");
 	arr.push(req.body.exp_date_4 || "");
 
-	arr.push("Example\tHere");
+	arr.push(req.body.exp_location || "");
 	arr.push(req.body.exp_location_2 || "");
 	arr.push(req.body.exp_location_3 || "");
 	arr.push(req.body.exp_location_4 || "");
